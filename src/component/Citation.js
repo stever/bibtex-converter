@@ -455,7 +455,7 @@ const csl = `
 
 export const Citation = () => {
     const format = 'HTML'
-    const innerText = `@book{texbook,
+    const input = `@book{texbook,
   author = {Donald E. Knuth},
   year = {1986},
   title = {The {\\TeX} Book},
@@ -466,8 +466,8 @@ export const Citation = () => {
     let [outputText, setOutputText] = useState(undefined)
     const worker = new Worker('./bibtex.worker.js')
 
-    if (innerText.length > 1 && format) {
-        worker.postMessage({input: innerText, format, style, csl})
+    if (input.length > 1 && format) {
+        worker.postMessage({input, format, style, csl})
 
         worker.onerror = () => {
             setOutputText('')

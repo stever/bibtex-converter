@@ -1,8 +1,15 @@
-.alata-font{
-    font-family: 'Alata', sans-serif;
+.csl-entry {
+    margin: 1em 0;
+}
+
+.csl-entry:last-child {
+    margin: 0;
 }
 
 .csl-left-margin {
     float: left;
-    margin-right: 1em;
+}
+
+.csl-right-inline {
+    margin-left: 80px;
 }

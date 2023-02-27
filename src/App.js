@@ -7,6 +7,7 @@ function App() {
   return (
     <div className="App">
         <main className="p-3 bg-light">
+            <center><b>References</b></center>
             <Citation input={`@book{texbook,
   author = {Donald E. Knuth},
   year = {1986},

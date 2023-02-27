@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import '@citation-js/plugin-bibtex';
-import '@citation-js/plugin-ris';
 import '@citation-js/plugin-csl';
 import {Cite, plugins} from "@citation-js/core";
 

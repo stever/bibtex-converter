@@ -10,7 +10,6 @@
     "@citation-js/core": "^0.6.5",
     "@citation-js/plugin-bibtex": "^0.6.6",
     "@citation-js/plugin-csl": "^0.6.7",
-    "@citation-js/plugin-ris": "^0.6.5",
     "bootstrap": "^5.2.3",
     "prop-types": "^15.8.1",
     "react": "^17.0.2",

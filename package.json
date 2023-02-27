@@ -1,25 +1,20 @@
 {
   "name": "bibtex-converter",
-  "version": "0.1.0",
   "private": true,
-  "homepage": "https://asouqi.github.io/bibtex-converter",
+  "scripts": {
+    "start": "NODE_OPTIONS=--openssl-legacy-provider webpack serve --open --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js",
+    "predeploy": "npm run build"
+  },
   "dependencies": {
     "@citation-js/core": "^0.5.1",
     "@citation-js/plugin-bibtex": "^0.5.1",
     "@citation-js/plugin-csl": "^0.5.1",
     "@citation-js/plugin-ris": "^0.5.1",
-    "@ckeditor/ckeditor5-build-decoupled-document": "23.0.0",
-    "@ckeditor/ckeditor5-react": "^5.0.2",
-    "@uiw/react-codemirror": "^3.0.10",
     "bootstrap": "^5.0.0",
-    "html-to-pdfmake": "^2.2.4",
-    "latex.js": "0.11.1",
-    "sass": "^1.58.3",
-    "pdfmake": "^0.1.71",
     "prop-types": "^15.8.1",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-scripts": "4.0.3"
+    "react-dom": "^17.0.2"
   },
   "resolutions": {
     "react": "^17.0.2"
@@ -27,46 +22,15 @@
   "peerDependencies": {
     "react": "^17.0.2"
   },
-  "scripts": {
-    "start": "NODE_OPTIONS=--openssl-legacy-provider webpack serve --open --config webpack.dev.js",
-    "build": "webpack --config webpack.prod.js",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
   "devDependencies": {
     "@babel/core": "^7.14.3",
     "@babel/plugin-transform-runtime": "^7.14.3",
     "@babel/preset-env": "^7.14.4",
     "@babel/preset-react": "^7.13.13",
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
     "babel-cli": "^6.26.0",
     "babel-loader": "^8.2.2",
-    "copy-webpack-plugin": "^9.0.0",
     "css-loader": "^5.2.6",
     "file-loader": "^6.2.0",
-    "gh-pages": "^3.2.0",
     "html-webpack-plugin": "^5.3.1",
     "json-loader": "^0.5.7",
     "path": "^0.12.7",

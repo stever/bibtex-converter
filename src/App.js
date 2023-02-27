@@ -1,7 +1,7 @@
 import React from "react";
 import {Citation} from "./component/Citation";
 import 'bootstrap/scss/bootstrap.scss'
-import './fonts.css'
+import './style.css'
 
 function App() {
   return (

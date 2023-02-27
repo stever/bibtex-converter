@@ -1,4 +1,8 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
+import '@citation-js/plugin-bibtex';
+import '@citation-js/plugin-ris';
+import '@citation-js/plugin-csl';
+import {Cite, plugins} from "@citation-js/core";
 
 // IEEE
 const csl = `
@@ -452,28 +456,15 @@ const csl = `
 </style>
 `;
 
-async function convertBibtex(input, format, style, csl) {
-    await import('@citation-js/plugin-bibtex');
-    await import('@citation-js/plugin-ris');
-    await import('@citation-js/plugin-csl');
-    const {Cite, plugins} = await import('@citation-js/core');
-
+function convertBibtex(input, format, style, csl) {
     const cslPlugin = plugins.config.get('@csl')
     cslPlugin.templates.add(style, csl)
 
-    const cite = Cite(input,{ format: 'string'})
-    switch (format){
-        case 'HTML': {
-            return cite.format('bibliography', {
-                format: 'html',
-                template: style,
-                lang: 'en-US'
-            })
-        }
-        default: {
-            break
-        }
-    }
+    return Cite(input,{ format: 'string'}).format('bibliography', {
+        format: 'html',
+        template: style,
+        lang: 'en-US'
+    })
 }
 
 export const Citation = () => {
@@ -484,17 +475,7 @@ export const Citation = () => {
   title = {The {\\TeX} Book},
   publisher = {Addison-Wesley Professional}
 }`
-    const style = 'ieee'
-
-    let [outputText, setOutputText] = useState(undefined)
-
-    useEffect(async () => {
-        convertBibtex(input, format, style, csl).then(((output) => {
-            setOutputText(output);
-        })).catch((e) => {
-          console.error(e)
-        })
-    }, []);
+    const outputText = convertBibtex(input, format, 'ieee', csl);
 
     return (
         <div className="container-fluid">

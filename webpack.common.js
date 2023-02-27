@@ -2,7 +2,6 @@ const path = require('path');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
-const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     entry: {
@@ -13,15 +12,8 @@ module.exports = {
             process: 'process/browser',
         }),
         new HtmlWebpackPlugin({
-            template: 'public/index.html',
-            favicon: "./src/icons/favicon.ico"
+            template: 'public/index.html'
         }),
-        new CopyPlugin({patterns:[
-                { from: 'public/css', to: 'css' },
-                { from: 'public/fonts', to: 'fonts' },
-                { from: 'public/js', to: 'js' },
-                { from: 'public/assets', to: 'assets' }
-            ]}),
     ],
     output: {
         filename: '[name].bundle.js',

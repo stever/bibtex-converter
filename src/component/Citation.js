@@ -1,8 +1,30 @@
 import React from "react";
+import PropTypes from "prop-types";
 import '@citation-js/plugin-bibtex';
 import '@citation-js/plugin-ris';
 import '@citation-js/plugin-csl';
 import {Cite, plugins} from "@citation-js/core";
+
+export function Citation({input}) {
+    const cslPlugin = plugins.config.get('@csl');
+    cslPlugin.templates.add('ieee', csl);
+
+    const outputText = Cite(input, {format: 'string'}).format('bibliography', {
+        format: 'html',
+        template: 'ieee',
+        lang: 'en-US'
+    });
+
+    return (
+        <div className="container-fluid">
+            <div className={'output-viewer'} dangerouslySetInnerHTML={{__html: outputText}} style={{overflow: 'auto'}}/>
+        </div>
+    )
+}
+
+Citation.propTypes = {
+    input: PropTypes.string.isRequired
+}
 
 // IEEE
 const csl = `
@@ -455,31 +477,3 @@ const csl = `
     </bibliography>
 </style>
 `;
-
-function convertBibtex(input, format, style, csl) {
-    const cslPlugin = plugins.config.get('@csl')
-    cslPlugin.templates.add(style, csl)
-
-    return Cite(input,{ format: 'string'}).format('bibliography', {
-        format: 'html',
-        template: style,
-        lang: 'en-US'
-    })
-}
-
-export const Citation = () => {
-    const format = 'HTML'
-    const input = `@book{texbook,
-  author = {Donald E. Knuth},
-  year = {1986},
-  title = {The {\\TeX} Book},
-  publisher = {Addison-Wesley Professional}
-}`
-    const outputText = convertBibtex(input, format, 'ieee', csl);
-
-    return (
-        <div className="container-fluid">
-            <div className={'output-viewer'} dangerouslySetInnerHTML={{__html: outputText}} style={{overflow: 'auto'}}/>
-        </div>
-    )
-}

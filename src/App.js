@@ -7,7 +7,12 @@ function App() {
   return (
     <div className="App">
         <main className="p-3 bg-light">
-            <Citation/>
+            <Citation input={`@book{texbook,
+  author = {Donald E. Knuth},
+  year = {1986},
+  title = {The {\\TeX} Book},
+  publisher = {Addison-Wesley Professional}
+}`}/>
         </main>
     </div>
   );

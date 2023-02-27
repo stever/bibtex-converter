@@ -44,22 +44,9 @@ module.exports = {
                 use: ['json-loader'],
                 type: 'javascript/auto'
             },
-            {
-                test: /\.worker\.js$/,
-                use: { loader: "worker-loader" },
-            },
-            {
-                test: /\.(svg)$/,
-                use: {
-                    loader: 'file-loader',
-                    options: {
-                        name: 'files/[name].[ext]',
-                    },
-                },
-            },
         ],
     },
     resolve: {
-        extensions: ['*', '.js', '.jsx', '.json'],
+        extensions: ['.js', '.jsx', '.json'],
     },
 };

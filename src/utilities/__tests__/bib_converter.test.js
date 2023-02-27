@@ -1,4 +1,4 @@
-import {ConvertToBibItem, ConvertToBibTex} from "../bib_converter";
+import {ConvertToBibItem} from "../bib_converter";
 
 describe('BiB Convert', () => {
     it('Convert BibTex To BibItem', () => {

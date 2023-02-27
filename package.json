@@ -14,7 +14,7 @@
     "bootstrap": "^5.0.0",
     "html-to-pdfmake": "^2.2.4",
     "latex.js": "0.11.1",
-    "node-sass": "^6.0.0",
+    "sass": "^1.58.3",
     "pdfmake": "^0.1.71",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -27,7 +27,7 @@
     "react": "^17.0.2"
   },
   "scripts": {
-    "start": "webpack serve --open --config webpack.dev.js",
+    "start": "NODE_OPTIONS=--openssl-legacy-provider webpack serve --open --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject",

@@ -1,7 +1,6 @@
 const path = require('path');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const {WebpackManifestPlugin} = require('webpack-manifest-plugin');
 const webpack = require('webpack');
 const CopyPlugin = require('copy-webpack-plugin');
 
@@ -16,9 +15,6 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: 'public/index.html',
             favicon: "./src/icons/favicon.ico"
-        }),
-        new WebpackManifestPlugin({
-            fileName: 'manifest.json'
         }),
         new CopyPlugin({patterns:[
                 { from: 'public/css', to: 'css' },

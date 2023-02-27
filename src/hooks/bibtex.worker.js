@@ -1,6 +1,8 @@
 import {ConvertToBibItem} from "../utilities/bib_converter";
 
 async function convertBibtex(input, format, style, csl) {
+    console.log({input, format, style, csl});
+
     await import(/* webpackChunkName: "citation-js" */'@citation-js/plugin-bibtex');
     await import(/* webpackChunkName: "citation-js" */'@citation-js/plugin-ris');
     await import(/* webpackChunkName: "citation-js" */'@citation-js/plugin-csl');

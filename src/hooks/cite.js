@@ -5,6 +5,8 @@ import {CSL} from "../utilities/csl";
 import Worker from "./bibtex.worker";
 
 export default (input, format, style) => {
+    console.log({input, format, style});
+
     const [outputText, setOutputText] = useState(undefined)
     const [outputError, setOutputError] = useState(false)
     const [outputLoading, setOutputLoading] = useState(false)
@@ -38,7 +40,6 @@ export default (input, format, style) => {
                   } else {
                       setOutputText(output)
                   }
-                  dataLayer.push({event: 'convert', format})
               }
           }
         } else {

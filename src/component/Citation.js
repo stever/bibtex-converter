@@ -1,5 +1,4 @@
-import React, {useState} from "react";
-import Worker from "../bibtex.worker";
+import React, {useEffect, useState} from "react";
 
 // IEEE
 const csl = `
@@ -453,6 +452,30 @@ const csl = `
 </style>
 `;
 
+async function convertBibtex(input, format, style, csl) {
+    await import('@citation-js/plugin-bibtex');
+    await import('@citation-js/plugin-ris');
+    await import('@citation-js/plugin-csl');
+    const {Cite, plugins} = await import('@citation-js/core');
+
+    const cslPlugin = plugins.config.get('@csl')
+    cslPlugin.templates.add(style, csl)
+
+    const cite = Cite(input,{ format: 'string'})
+    switch (format){
+        case 'HTML': {
+            return cite.format('bibliography', {
+                format: 'html',
+                template: style,
+                lang: 'en-US'
+            })
+        }
+        default: {
+            break
+        }
+    }
+}
+
 export const Citation = () => {
     const format = 'HTML'
     const input = `@book{texbook,
@@ -464,24 +487,14 @@ export const Citation = () => {
     const style = 'ieee'
 
     let [outputText, setOutputText] = useState(undefined)
-    const worker = new Worker('./bibtex.worker.js')
 
-    if (input.length > 1 && format) {
-        worker.postMessage({input, format, style, csl})
-
-        worker.onerror = () => {
-            setOutputText('')
-        }
-
-        worker.onmessage = (e) => {
-            const {output, error} = e.data
-            if (error) {
-                setOutputText('')
-            } else {
-                setOutputText(output)
-            }
-        }
-    }
+    useEffect(async () => {
+        convertBibtex(input, format, style, csl).then(((output) => {
+            setOutputText(output);
+        })).catch((e) => {
+          console.error(e)
+        })
+    }, []);
 
     return (
         <div className="container-fluid">

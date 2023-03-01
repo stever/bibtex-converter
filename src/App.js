@@ -13,9 +13,8 @@ function App() {
   year = {1986},
   title = {The {\\TeX} Book},
   publisher = {Addison-Wesley Professional}
-}
-
-@book{latex:companion,
+}`}/>
+            <Citation input={`@book{latex:companion,
   author = {Frank Mittelbach and Michel Gossens
             and Johannes Braams and David Carlisle
             and Chris Rowley},
@@ -23,18 +22,16 @@ function App() {
   title = {The {\\LaTeX} Companion},
   publisher = {Addison-Wesley Professional},
   edition = {2}
-}
-
-@book{latex2e,
+}`}/>
+            <Citation input={`@book{latex2e,
   author = {Leslie Lamport},
   year = {1994},
   title = {{\\LaTeX}: a Document Preparation System},
   publisher = {Addison Wesley},
   address = {Massachusetts},
   edition = {2}
-}
-
-@article{knuth:1984,
+}`}/>
+            <Citation input={`@article{knuth:1984,
   title={Literate Programming},
   author={Donald E. Knuth},
   journal={The Computer Journal},
@@ -43,9 +40,8 @@ function App() {
   pages={97--111},
   year={1984},
   publisher={Oxford University Press}
-}
-
-@inproceedings{lesk:1977,
+}`}/>
+            <Citation input={`@inproceedings{lesk:1977,
   title={Computer Typesetting of Technical Journals on {UNIX}},
   author={Michael Lesk and Brian Kernighan},
   booktitle={Proceedings of American Federation of

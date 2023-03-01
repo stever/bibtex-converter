@@ -324,21 +324,9 @@ const csl = `
                 </else-if>
             </choose>
         </group>
-    </macro>  <!-- Citation -->
-    <citation collapse="citation-number">
-        <sort>
-            <key variable="citation-number"/>
-        </sort>
-        <layout delimiter=", ">
-            <group prefix="[" suffix="]" delimiter=", ">
-                <text variable="citation-number"/>
-                <text macro="citation-locator"/>
-            </group>
-        </layout>
-    </citation>  <!-- Bibliography -->
+    </macro>  <!-- Bibliography -->
     <bibliography entry-spacing="0" second-field-align="flush">
-        <layout>      <!-- Citation Number -->
-            <text variable="citation-number" prefix="[" suffix="]"/>      <!-- Author(s) -->
+        <layout>      <!-- Author(s) -->
             <text macro="author" suffix=", "/>      <!-- Rest of Citation -->
             <choose>        <!-- Specific Formats -->
                 <if type="article-journal">

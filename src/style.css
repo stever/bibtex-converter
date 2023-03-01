@@ -1,15 +1,19 @@
-.csl-entry {
+.csl-entry,
+.citation-wrapper {
     margin: 1em 0;
 }
 
-.csl-entry:last-child {
+.csl-entry:last-child,
+.citation:last-child {
     margin: 0;
 }
 
-.csl-left-margin {
+.csl-left-margin,
+.citation-number {
     float: left;
 }
 
-.csl-right-inline {
-    margin-left: 80px;
+.csl-right-inline,
+.citation {
+    margin-left: 80px !important;
 }

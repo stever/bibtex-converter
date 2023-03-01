@@ -8,13 +8,13 @@ function App() {
     <div className="App">
         <main className="p-3 bg-light">
             <center><b>References</b></center>
-            <Citation input={`@book{texbook,
+            <Citation number={1} input={`@book{texbook,
   author = {Donald E. Knuth},
   year = {1986},
   title = {The {\\TeX} Book},
   publisher = {Addison-Wesley Professional}
 }`}/>
-            <Citation input={`@book{latex:companion,
+            <Citation number={2} input={`@book{latex:companion,
   author = {Frank Mittelbach and Michel Gossens
             and Johannes Braams and David Carlisle
             and Chris Rowley},
@@ -23,7 +23,7 @@ function App() {
   publisher = {Addison-Wesley Professional},
   edition = {2}
 }`}/>
-            <Citation input={`@book{latex2e,
+            <Citation number={3} input={`@book{latex2e,
   author = {Leslie Lamport},
   year = {1994},
   title = {{\\LaTeX}: a Document Preparation System},
@@ -31,7 +31,7 @@ function App() {
   address = {Massachusetts},
   edition = {2}
 }`}/>
-            <Citation input={`@article{knuth:1984,
+            <Citation number={4} input={`@article{knuth:1984,
   title={Literate Programming},
   author={Donald E. Knuth},
   journal={The Computer Journal},
@@ -41,7 +41,7 @@ function App() {
   year={1984},
   publisher={Oxford University Press}
 }`}/>
-            <Citation input={`@inproceedings{lesk:1977,
+            <Citation number={5} input={`@inproceedings{lesk:1977,
   title={Computer Typesetting of Technical Journals on {UNIX}},
   author={Michael Lesk and Brian Kernighan},
   booktitle={Proceedings of American Federation of

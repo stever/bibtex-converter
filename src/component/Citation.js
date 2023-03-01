@@ -4,7 +4,7 @@ import '@citation-js/plugin-bibtex';
 import '@citation-js/plugin-csl';
 import {Cite, plugins} from "@citation-js/core";
 
-export function Citation({input}) {
+export function Citation({number, input}) {
     const cslPlugin = plugins.config.get('@csl');
     cslPlugin.templates.add('ieee', csl);
 
@@ -15,14 +15,16 @@ export function Citation({input}) {
     });
 
     return (
-        <div className="container-fluid">
-            <div className={'output-viewer'} dangerouslySetInnerHTML={{__html: outputText}} style={{overflow: 'auto'}}/>
+        <div className="citation-wrapper">
+            <div className="citation-number">[{number}]</div>
+            <div className="citation" dangerouslySetInnerHTML={{__html: outputText}} style={{overflow: 'auto'}}/>
         </div>
     )
 }
 
 Citation.propTypes = {
-    input: PropTypes.string.isRequired
+    number: PropTypes.number.isRequired,
+    input: PropTypes.string.isRequired,
 }
 
 // IEEE
@@ -325,7 +327,7 @@ const csl = `
             </choose>
         </group>
     </macro>  <!-- Bibliography -->
-    <bibliography entry-spacing="0" second-field-align="flush">
+    <bibliography entry-spacing="0">
         <layout>      <!-- Author(s) -->
             <text macro="author" suffix=", "/>      <!-- Rest of Citation -->
             <choose>        <!-- Specific Formats -->
